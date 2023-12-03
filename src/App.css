@@ -1,0 +1,40 @@
+.note-form {
+  display:flex;
+  justify-content: center;
+  flex-direction: column;
+}
+label{
+    font-size: 16;
+    font-weight: 700;
+}
+.note-title,
+.note-tags{
+    min-width: 300px;
+}
+.note-title input,
+.note-tags > input,
+.note-textarea textarea{
+    font-size: 14px;
+    font-weight: 500;
+}
+.note-textarea{
+    min-width: 625px;
+}
+
+#navBar a.active{
+    color: #0174BE;
+    font-weight: 700;
+    font-size: 18;
+}
+
+button.btn-primary,
+button.btn-primary:hover,
+button.btn-primary:focus,
+button.btn-primary:active{
+    background-color: #0174BE;
+}
+
+.notes-markdown{
+    max-height: 250px;
+    overflow: auto;
+}
