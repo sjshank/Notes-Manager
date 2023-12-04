@@ -38,3 +38,13 @@ button.btn-primary:active{
     max-height: 250px;
     overflow: auto;
 }
+
+.de-lang{
+    color: #ED7D31;
+    font-weight: 600;
+}
+
+.en-lang {
+    color: #219C90;
+    font-weight: 600;
+}

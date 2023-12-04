@@ -7,6 +7,7 @@ import { useNavigate } from "react-router-dom";
 import { INoteData, ITag } from "../interface/INoteData";
 import { MultiValue } from "react-select";
 import { v4 as uuidV4 } from "uuid";
+import { useTranslation } from "react-i18next";
 
 type NoteFormProps = {
   onSubmit: (formData: INoteData) => void;
@@ -26,6 +27,7 @@ const NoteForm: React.FunctionComponent<NoteFormProps> = ({
   const [selectedTags, setSelectedTags] = useState<ITag[]>(tags);
   const titleInputRef = useRef<HTMLInputElement>(null);
   const notesInputRef = useRef<HTMLTextAreaElement>(null);
+  const { t } = useTranslation();
   const handleCancel: () => void = () => {
     navigate("/", { replace: true });
   };
@@ -72,17 +74,17 @@ const NoteForm: React.FunctionComponent<NoteFormProps> = ({
     <Form className="note-form" onSubmit={handleSubmit}>
       <Stack gap={4} direction="horizontal" style={{ alignSelf: "center" }}>
         <Form.Group className="mb-3 note-title" controlId="titleId">
-          <Form.Label>Title</Form.Label>
+          <Form.Label>{t("Title")}</Form.Label>
           <Form.Control
             ref={titleInputRef}
             type="text"
-            placeholder="Note's Title"
+            placeholder={t("Notes") + " " + t("Title")}
             defaultValue={title}
             required
           />
         </Form.Group>
         <Form.Group className="mb-3 note-tags" controlId="tagsId">
-          <Form.Label>Tags</Form.Label>
+          <Form.Label>{t("Tags")}</Form.Label>
           <CreatableSelect
             isMulti
             onCreateOption={handleNewOptionCreation}
@@ -95,14 +97,14 @@ const NoteForm: React.FunctionComponent<NoteFormProps> = ({
       </Stack>
       <Stack direction="horizontal" style={{ alignSelf: "center" }}>
         <Form.Group className="mb-3 note-textarea" controlId="notesId">
-          <Form.Label>Notes</Form.Label>
+          <Form.Label>{t("Notes")}</Form.Label>
           <Form.Control
             defaultValue={notes}
             required
             ref={notesInputRef}
             as="textarea"
             rows={8}
-            placeholder="Your notes goes here..."
+            placeholder={t("Your notes goes here...")}
           />
         </Form.Group>
       </Stack>
