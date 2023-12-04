@@ -46,6 +46,8 @@ const NoteDetails: React.FunctionComponent<NoteDetailProps> = ({
                 bg="success"
                 style={{
                   padding: "8px 16px",
+                  marginBottom: "4px",
+                  marginRight: "4px",
                   textTransform: "capitalize",
                   fontSize: 14,
                 }}

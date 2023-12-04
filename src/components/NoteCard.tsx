@@ -11,7 +11,7 @@ type NoteCardProps = {
 const NoteCard: React.FunctionComponent<NoteCardProps> = ({
   noteCard,
   onDeleteNote,
-}) : React.JSX.Element=> {
+}): React.JSX.Element => {
   const handleDelete = () => {
     onDeleteNote(noteCard.id);
   };
@@ -21,29 +21,33 @@ const NoteCard: React.FunctionComponent<NoteCardProps> = ({
   return (
     <Card
       className="border-dark"
-      style={{ maxWidth: "18rem" }}
+      style={{ maxWidth: "20rem" }}
       key={noteCard.id}
     >
       <Card.Body className="card-header">
         <Card.Title className="text-capitalize text-center mb-2">
-          <Link to={`/${noteCard.id}`} color="#0174BE">{noteCard.title}</Link>
+          <Link to={`/${noteCard.id}`} color="#0174BE">
+            {noteCard.title}
+          </Link>
         </Card.Title>
         <Card.Subtitle>
-          <div className="row mt-2 mb-2">
+          <div className="row mt-4 mb-4">
             <div className="col-10 text-truncate font-monospace text-capitalize">
               {noteCard.notes}
             </div>
           </div>
         </Card.Subtitle>
         <Card.Text>
-          {noteCard.tags.map((tag) => {
-            return (
+          {noteCard.tags.map((tag, index) => {
+            return index > 2 ? null : (
               <Badge
                 key={tag.id}
                 pill
                 bg="success"
                 style={{
                   padding: "8px 16px",
+                  marginBottom: "4px",
+                  marginRight: "4px",
                   textTransform: "capitalize",
                   fontSize: 14,
                 }}
