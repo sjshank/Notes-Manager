@@ -19,6 +19,7 @@ const resources = {
       Tags: "Stichworte",
       Notes: "Anmerkungen",
       "Your notes goes here...": "Ihre Notizen kommen hierher...",
+      "No record found": "Kein Eintrag gefunden",
     },
   },
 };
