@@ -2,6 +2,7 @@ import React from "react";
 import { INotedWithTags } from "../interface/INoteData";
 import { Card, Badge, Stack } from "react-bootstrap";
 import { Link } from "react-router-dom";
+import { useTranslation } from "react-i18next";
 
 type NoteCardProps = {
   noteCard: INotedWithTags;
@@ -15,6 +16,7 @@ const NoteCard: React.FunctionComponent<NoteCardProps> = ({
   const handleDelete = () => {
     onDeleteNote(noteCard.id);
   };
+  const { t } = useTranslation();
 
   // const handleEdit = () => {};
 
@@ -68,7 +70,7 @@ const NoteCard: React.FunctionComponent<NoteCardProps> = ({
             style={{ fontWeight: 500, color: "#BB2525", cursor: "pointer" }}
             onClick={handleDelete}
           >
-            Delete
+            {t('Delete')}
           </Card.Link>
         </Stack>
       </Card.Body>

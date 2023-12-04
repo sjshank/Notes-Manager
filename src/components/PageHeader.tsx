@@ -33,7 +33,7 @@ const PageHeader = ({ t, i18n }: any) => {
             role="button"
             onClick={() => changeLang()}
           >
-            {i18n.language !== "en" ? <>ENGLISH</> : <>GERMAN</>}
+            {i18n.language !== "en" ? <>EN</> : <>GE</>}
           </a>
         </div>
       </nav>

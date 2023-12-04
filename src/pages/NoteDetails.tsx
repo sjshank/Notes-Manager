@@ -4,6 +4,7 @@ import { useNoteContext } from "./NoteLayout";
 import ReactMarkdown from "react-markdown";
 import { Link } from "react-router-dom";
 import { ITag } from "../interface/INoteData";
+import { useTranslation } from "react-i18next";
 
 type NoteDetailProps = {
   onDeleteNote: (id: string) => void;
@@ -13,6 +14,7 @@ const NoteDetails: React.FunctionComponent<NoteDetailProps> = ({
   onDeleteNote,
 }) :React.JSX.Element => {
   const note = useNoteContext();
+  const {t} = useTranslation();
   return (
     <Row className="justify-content-center align-items-center p-4 ">
       <Col
@@ -71,7 +73,7 @@ const NoteDetails: React.FunctionComponent<NoteDetailProps> = ({
             className="fs-5"
             style={{ fontWeight: 500, color: "#0174BE", cursor: "pointer" }}
           >
-            EDIT
+            {t('Edit')}
           </Link>
           <a
             role="button"
@@ -79,7 +81,7 @@ const NoteDetails: React.FunctionComponent<NoteDetailProps> = ({
             style={{ fontWeight: 500, color: "#BB2525", cursor: "pointer" }}
             onClick={() => onDeleteNote(note.id)}
           >
-            DELETE
+            {t('Delete')}
           </a>
         </Stack>
       </Col>
